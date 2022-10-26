@@ -14,7 +14,6 @@ class NombreFragment : Fragment() {
     private lateinit var binding: FragmentNombreBinding
     private lateinit var nombre: String
     private var largo = 0
-    private var esPar = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,8 +34,8 @@ class NombreFragment : Fragment() {
             try {
                 nombre = binding.etNombre.text.toString()
                 largo = calcularLargo(nombre)
-                esPar = VerificarSiEsPar(largo)
-                binding.tvMaterial.text = "Su nombre tiene $largo letras y es par = ${esPar.toString()}"
+
+                binding.tvMaterial.text = "Su nombre tiene $largo letras y ${VerificarSiEsPar(largo)}"
                 binding.etNombre.setText("")
             } catch (e: NumberFormatException) {
                 Toast.makeText(context, "El dato digitado no es valido", Toast.LENGTH_SHORT).show()
@@ -44,8 +43,11 @@ class NombreFragment : Fragment() {
         }
     }
 
-    private fun VerificarSiEsPar(largo: Int): Boolean {
-        return largo%2 == 0
+        private fun VerificarSiEsPar(largo: Int): String {
+            return if(largo%2 == 0)
+                "es par"
+            else
+                "no es par"
     }
 
     private fun calcularLargo(nombre: String): Int {
