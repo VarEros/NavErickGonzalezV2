@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/menuFragment">
+
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="ni.edu.uca.naverickgonzalezv2.MenuFragment"
+        android:label="fragment_menu"
+        tools:layout="@layout/fragment_menu" >
+        <action
+            android:id="@+id/action_menuFragment_to_modaFragment"
+            app:destination="@id/modaFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_cuboFragment"
+            app:destination="@id/cuboFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_nombreFragment"
+            app:destination="@id/nombreFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/modaFragment"
+        android:name="ni.edu.uca.naverickgonzalezv2.ModaFragment"
+        android:label="fragment_moda"
+        tools:layout="@layout/fragment_moda" />
+    <fragment
+        android:id="@+id/cuboFragment"
+        android:name="ni.edu.uca.naverickgonzalezv2.CuboFragment"
+        android:label="fragment_cubo"
+        tools:layout="@layout/fragment_cubo" />
+    <fragment
+        android:id="@+id/nombreFragment"
+        android:name="ni.edu.uca.naverickgonzalezv2.NombreFragment"
+        android:label="fragment_nombre"
+        tools:layout="@layout/fragment_nombre" />
+</navigation>
